@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\op_sem2\1.1\op2_lab1.1_cpp\op2_lab1.1\func.cpp" />
-    <ClCompile Include="..\..\..\..\op_sem2\1.1\op2_lab1.1_cpp\op2_lab1.1\op2_lab1.1.cpp" />
+    <ClCompile Include="func.cpp" />
+    <ClCompile Include="lab1.1_cpp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\op_sem2\1.1\op2_lab1.1_cpp\op2_lab1.1\Header.h" />
+    <ClInclude Include="Header.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

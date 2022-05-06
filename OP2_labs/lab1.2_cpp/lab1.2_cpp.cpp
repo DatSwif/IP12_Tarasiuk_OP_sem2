@@ -1,20 +1,35 @@
-﻿// lab1.2_cpp.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+#include "Header.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	string filename;
+	cout << "Enter file name:\n";
+	getline(cin, filename);
+	schedule sch;
+	ifstream readFile(filename.c_str(), ios::binary);
+	if (readFile.good()) //file exists
+	{
+		fileToData(readFile, sch);
+		cout << "\nFile contents:\n";
+		toConsole(sch);
+	}
+	else
+	{
+		cout << "\nA new file will be created\n";
+	}
+	readFile.close();
+
+	getNewData(sch);
+
+	ofstream writeFile;
+	writeFile.open(filename, ios::binary);
+	fillFile(writeFile, sch);
+	writeFile.close();
+
+	cout << "\nFile contents:\n";
+	schedule finalData;
+	readFile.open(filename, ios::binary);
+	fileToData(readFile, finalData);
+	readFile.close();
+	toConsole(finalData);
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.

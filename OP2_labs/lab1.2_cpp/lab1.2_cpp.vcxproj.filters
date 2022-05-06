@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lab1.2_cpp.cpp">
+    <ClCompile Include="func.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\op_sem2\1.2\op2_lab1.2_cpp\op2_lab1.2_cpp\func.cpp">
+    <ClCompile Include="lab1.2_cpp.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\op_sem2\1.2\op2_lab1.2_cpp\op2_lab1.2_cpp\Header.h">
-      <Filter>Исходные файлы</Filter>
+    <ClInclude Include="Header.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

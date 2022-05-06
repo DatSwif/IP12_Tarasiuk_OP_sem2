@@ -139,11 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\op_sem2\1.2\op2_lab1.2_cpp\op2_lab1.2_cpp\func.cpp" />
+    <ClCompile Include="func.cpp" />
     <ClCompile Include="lab1.2_cpp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\op_sem2\1.2\op2_lab1.2_cpp\op2_lab1.2_cpp\Header.h" />
+    <ClInclude Include="Header.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
