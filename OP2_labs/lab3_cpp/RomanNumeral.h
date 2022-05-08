@@ -1,7 +1,16 @@
 #pragma once
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cmath>
+
+using std::cout;
+using std::cin;
+using std::string;
 
 class RomanNumeral
 {
+private:
 	string romanValue;
 	int arabicValue;
 public:
@@ -30,7 +39,7 @@ public:
 	}
 	RomanNumeral operator++()
 	{
-		return RomanNumeral(arabicValue + 1);
+		return RomanNumeral(arabicValue+1);
 	}
 	RomanNumeral operator+=(string num2)
 	{
@@ -46,3 +55,5 @@ public:
 		cout << "Arabic value: " << arabicValue << '\n';
 	}
 };
+
+RomanNumeral createRomanNumeral(string num);

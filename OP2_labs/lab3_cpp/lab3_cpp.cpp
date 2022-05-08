@@ -24,8 +24,10 @@ int main()
     cout << "Enter the numbers R1 and R2 (in arabic or roman)\n";
     cout << "Leave the row empty to set its value to 1 (default)\n";
     cin >> num1 >> num2;
-    RomanNumeral R1 = createRomanNumeral(num1);
-    RomanNumeral R2 = createRomanNumeral(num2);
+    RomanNumeral R1;
+    R1 = createRomanNumeral(num1);
+    RomanNumeral R2;
+    R1 = createRomanNumeral(num2);
 
     cout << "R1:\n";
     R1.displayValue();
