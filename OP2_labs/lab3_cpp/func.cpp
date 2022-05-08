@@ -11,6 +11,17 @@ bool isRoman(string str)
 	return str.find_first_not_of("IVXLCDM") == string::npos;
 }
 
+string reverse(string input)
+{
+    string res = "";
+    while (input != "")
+    {
+        res += input.back();
+        input.pop_back();
+    }
+    return res;
+}
+
 RomanNumeral createRomanNumeral(string num)
 {
     if (num.empty())
@@ -44,23 +55,32 @@ string toRoman(int arabic)
         switch (digit)
         {
         case 1:
-            res = RD[power10][0] + res;
+            res.insert(0, 1, RD[power10][0]);
+            break;
         case 2:
-            res = "" + RD[power10][0] + RD[power10][0] + res;
+            res.insert(0, {RD[power10][0], RD[power10][0]});
+            break;
         case 3:
-            res = "" + RD[power10][0] + RD[power10][0] + RD[power10][0] + res;
+            res.insert(0, {RD[power10][0], RD[power10][0], RD[power10][0]});
+            break;
         case 4:
-            res = "" + RD[power10][0] + RD[power10][1] + res;
+            res.insert(0, {RD[power10][0], RD[power10][1]});
+            break;
         case 5:
-            res = RD[power10][1] + res;
+            res.insert(0, 1, RD[power10][1]);
+            break;
         case 6:
-            res = "" + RD[power10][1] + RD[power10][0] + res;
+            res.insert(0, {RD[power10][1], RD[power10][0]});
+            break;
         case 7:
-            res = "" + RD[power10][1] + RD[power10][0] + RD[power10][0] + res;
+            res.insert(0, {RD[power10][1], RD[power10][0], RD[power10][0]});
+            break;
         case 8:
-            res = "" + RD[power10][1] + RD[power10][0] + RD[power10][0] + RD[power10][0] + res;
+            res.insert(0, {RD[power10][1], RD[power10][0], RD[power10][0], RD[power10][0]});
+            break;
         case 9:
-            res = "" + RD[power10][0] + RD[power10][2] + res;
+            res.insert(0, {RD[power10][0], RD[power10][2]});
+            break;
         }
         arabic /= 10;
         power10 += 1;
@@ -77,7 +97,7 @@ string toRoman(int arabic)
 
 int toArabic(string roman)
 {
-    int res;
+    int res = 0;
     const string CorrToAD[3][10] = 
     {   {"\0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"}, 
         {"\0", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"}, 
@@ -101,19 +121,19 @@ int toArabic(string roman)
         size_t posOf8 = roman.find(CorrToAD[i][8]);
         if (posOf8 != string::npos)
         {
-            roman.replace(posOf8, 2, "");
+            roman.replace(posOf8, 4, "");
             res += 8 * round(pow(10, i));
         } //converting all 8's
         size_t posOf3 = roman.find(CorrToAD[i][3]);
         if (posOf3 != string::npos)
         {
-            roman.replace(posOf3, 2, "");
+            roman.replace(posOf3, 3, "");
             res += 3 * round(pow(10, i));
         } //converting all 3's
         size_t posOf7 = roman.find(CorrToAD[i][7]);
         if (posOf7 != string::npos)
         {
-            roman.replace(posOf7, 2, "");
+            roman.replace(posOf7, 3, "");
             res += 7 * round(pow(10, i));
         } //converting all 7's
         size_t posOf2 = roman.find(CorrToAD[i][2]);
@@ -131,13 +151,13 @@ int toArabic(string roman)
         size_t posOf1 = roman.find(CorrToAD[i][1]);
         if (posOf1 != string::npos)
         {
-            roman.replace(posOf1, 2, "");
+            roman.replace(posOf1, 1, "");
             res += 1 * round(pow(10, i));
         } //converting all 1's
         size_t posOf5 = roman.find(CorrToAD[i][5]);
         if (posOf5 != string::npos)
         {
-            roman.replace(posOf5, 2, "");
+            roman.replace(posOf5, 1, "");
             res += 5 * round(pow(10, i));
         } //converting all 5's
     }

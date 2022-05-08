@@ -39,11 +39,15 @@ public:
 	}
 	RomanNumeral operator++()
 	{
-		return RomanNumeral(arabicValue+1);
+		++arabicValue;
+		romanValue = toRoman(arabicValue);
+		return *this;
 	}
 	RomanNumeral operator+=(string num2)
 	{
-		return RomanNumeral(arabicValue + toArabic(num2));
+		arabicValue += toArabic(num2);
+		romanValue = toRoman(arabicValue);
+		return *this;
 	}
 	RomanNumeral operator+(RomanNumeral num2)
 	{
