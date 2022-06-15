@@ -36,13 +36,11 @@
 #include "Header.h"
 #include "windows.h"
 
-using std::cout;
-
 int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    string formula = "9+8*(7+(6*(5+4)-(3-2))+1)";
+    std::string formula = "9+8*(7+(6*(5+4)-(3-2))+1)";
     Tree* tree;
     size_t treeHeight = 0;
     bool* levels;
@@ -53,19 +51,19 @@ int main()
     {
         levels[i] = false;
     }
-    cout << "Прямий обхід: \n";
+    std::cout << "Прямий обхід: \n";
     outDirect(tree->root, 0, levels);
-    cout << "Префіксальний вигляд виразу: \n";
+    std::cout << "Префіксальний вигляд виразу: \n";
     outPrefExpr(tree->root);
 
-    cout << "\nСиметричний обхід: \n";
+    std::cout << "\nСиметричний обхід: \n";
     outSymm(tree->root, 0, levels, false, false);
-    cout << "Інфіксальний вигляд виразу: \n";
+    std::cout << "Інфіксальний вигляд виразу: \n";
     outInfExpr(tree->root);
 
-    cout << "\nЗворотний обхід: \n";
+    std::cout << "\nЗворотний обхід: \n";
     outRev(tree->root, 0, levels);
-    cout << "Постфіксальний вигляд виразу: \n";
+    std::cout << "Постфіксальний вигляд виразу: \n";
     outPostfExpr(tree->root);
 }
 

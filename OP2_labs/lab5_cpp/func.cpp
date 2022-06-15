@@ -1,6 +1,6 @@
 #include "Header.h"
 
-void unpackFormula(string& formula)
+void unpackFormula(std::string& formula)
 {
 	remove(formula.begin(), formula.end(), ' ');
 	size_t formulaLen = formula.size();
@@ -10,7 +10,7 @@ void unpackFormula(string& formula)
 	}
 }
 
-char divideFormula(string& formula)
+char divideFormula(std::string& formula)
 {
 	unpackFormula(formula);
 	size_t formulaLen = formula.size();

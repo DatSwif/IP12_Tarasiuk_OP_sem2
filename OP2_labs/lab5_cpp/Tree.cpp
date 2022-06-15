@@ -1,11 +1,11 @@
 #include "Header.h"
 
-Tree::Tree(string formula, size_t& height) 
+Tree::Tree(std::string formula, size_t& height) 
 {
 	root = newNode(formula, height, 0);
 }
 
-Node* Tree::newNode(string formula, size_t& height, size_t currHeight)
+Node* Tree::newNode(std::string formula, size_t& height, size_t currHeight)
 {
 	if (currHeight > height) { height = currHeight; }
 
@@ -22,9 +22,9 @@ Node* Tree::newNode(string formula, size_t& height, size_t currHeight)
 	{
 		thisNode->symbol = divideFormula(formula);
 		size_t gapPos = formula.find(' ');
-		string leftFormula = formula.substr(0, gapPos);
+		std::string leftFormula = formula.substr(0, gapPos);
 		thisNode->left = newNode(leftFormula, height, currHeight + 1);
-		string rightFormula = formula.substr(gapPos + 1, formulaLen - gapPos - 1);
+		std::string rightFormula = formula.substr(gapPos + 1, formulaLen - gapPos - 1);
 		thisNode->right = newNode(rightFormula, height, currHeight + 1);
 	}
 	return thisNode;

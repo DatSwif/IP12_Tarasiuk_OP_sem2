@@ -1,10 +1,8 @@
 #pragma once
-#include <string>
-#include <iostream>
 #include "Tree.h"
 
-void unpackFormula(string&);
-char divideFormula(string&);
+void unpackFormula(std::string&);
+char divideFormula(std::string&);
 
 void outDirect(Node*, int level, bool*& levels);
 void outSymm(Node*, int level, bool*& levels, bool left, bool right);
