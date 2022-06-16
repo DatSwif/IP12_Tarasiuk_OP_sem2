@@ -42,28 +42,21 @@ int main()
     SetConsoleOutputCP(1251);
     std::string formula = "9+8*(7+(6*(5+4)-(3-2))+1)";
     Tree* tree;
-    size_t treeHeight = 0;
-    bool* levels;
-    tree = new Tree(formula, treeHeight);
+    tree = new Tree(formula);
 
-    levels = new bool[treeHeight+1];
-    for (size_t i = 0; i < treeHeight; i++)
-    {
-        levels[i] = false;
-    }
     std::cout << "Прямий обхід: \n";
-    outDirect(tree->root, 0, levels);
+    tree->startOutDirect();
     std::cout << "Префіксальний вигляд виразу: \n";
-    outPrefExpr(tree->root);
+    tree->startOutPrefExpr();
 
     std::cout << "\nСиметричний обхід: \n";
-    outSymm(tree->root, 0, levels, false, false);
+    tree->startOutSymm();
     std::cout << "Інфіксальний вигляд виразу: \n";
-    outInfExpr(tree->root);
+    tree->startOutInfExpr();
 
     std::cout << "\nЗворотний обхід: \n";
-    outRev(tree->root, 0, levels);
+    tree->startOutRev();
     std::cout << "Постфіксальний вигляд виразу: \n";
-    outPostfExpr(tree->root);
+    tree->startOutPostfExpr();
 }
 
