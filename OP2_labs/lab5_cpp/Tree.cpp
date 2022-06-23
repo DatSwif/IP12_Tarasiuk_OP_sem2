@@ -147,20 +147,20 @@ void Tree::startOutPrefExpr()
 
 void Tree::startOutSymm()
 {
-	outDirect(this->root, 0, this->levels);
+	outSymm(this->root, 0, this->levels);
 }
 
 void Tree::startOutInfExpr()
 {
-	outPrefExpr(this->root);
+	outInfExpr(this->root);
 }
 
 void Tree::startOutRev()
 {
-	outDirect(this->root, 0, this->levels);
+	outRev(this->root, 0, this->levels);
 }
 
 void Tree::startOutPostfExpr()
 {
-	outPrefExpr(this->root);
+	outPostfExpr(this->root);
 }

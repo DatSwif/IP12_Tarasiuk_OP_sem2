@@ -59,4 +59,3 @@ int main()
     std::cout << "Постфіксальний вигляд виразу: \n";
     tree->startOutPostfExpr();
 }
-
